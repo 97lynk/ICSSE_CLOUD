@@ -2,6 +2,7 @@ package com.a97lynk.object.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -33,6 +34,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<News> news;
 
     //contructors
     public User() {
