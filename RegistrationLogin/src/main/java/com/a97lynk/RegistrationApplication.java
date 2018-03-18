@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @PropertySource(value = {
-        "resgistration-application.properties",
+        "registration-application.properties",
         "registration-persistence.properties",
         "sendmail-application.properties",
 })
