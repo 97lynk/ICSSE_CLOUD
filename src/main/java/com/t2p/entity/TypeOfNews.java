@@ -21,10 +21,6 @@ public class TypeOfNews implements Serializable {
     public TypeOfNews() {
     }
 
-    public TypeOfNews(String type_name) {
-        this.type_name = type_name;
-    }
-
     public int getType_id() {
         return type_id;
     }

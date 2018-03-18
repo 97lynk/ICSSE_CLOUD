@@ -58,6 +58,22 @@ public class News implements Serializable {
         this.id = id;
     }
 
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public TypeOfNews getTypeOfNews() {
         return typeOfNews;
     }
@@ -104,29 +120,5 @@ public class News implements Serializable {
 
     public void setLastModified(Date lastModified) {
         this.lastModified = lastModified;
-    }
-
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("News [id = %d,%n title = %s,%n create = %s,%n last modified = %s,%n content = %s,%n user = %s,%n]",
-                id, title,
-                createDate, lastModified,
-                content, user.getLastName());
     }
 }
