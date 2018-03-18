@@ -1,17 +1,21 @@
-package com.a97lynk.object.entity;
+package com.t2p.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity(name = "types")
-public class TypeOfNews {
+public class TypeOfNews implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int type_id;
 
     private String type_name;
 
-    @OneToMany(mappedBy = "typeOfNews")
+    @JsonIgnore
+    @OneToMany(mappedBy = "typeOfNews", targetEntity = News.class)
     private List<News> news;
 
     public TypeOfNews() {

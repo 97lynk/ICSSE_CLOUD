@@ -1,20 +1,34 @@
-package com.a97lynk.object.entity;
+package com.t2p.entity;
+
+import com.a97lynk.object.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "news")
-public class News {
+public class News implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
+    @Column(name = "type_id")
+    private int typeId;
+
+    @Column(name = "user_id")
+    private int userId;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id",
+            insertable = false,
+            updatable = false)
     private TypeOfNews typeOfNews;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id",
+            insertable = false,
+            updatable = false)
     private User user;
 
     private String title;
@@ -90,5 +104,29 @@ public class News {
 
     public void setLastModified(Date lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("News [id = %d,%n title = %s,%n create = %s,%n last modified = %s,%n content = %s,%n user = %s,%n]",
+                id, title,
+                createDate, lastModified,
+                content, user.getLastName());
     }
 }
