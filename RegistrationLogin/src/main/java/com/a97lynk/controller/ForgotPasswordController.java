@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 /**
  * @author 97lynk
  */
-@Controller
+//@Controller
 public class ForgotPasswordController {
 
     private static final Logger logger

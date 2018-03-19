@@ -40,7 +40,7 @@ public class LoginController {
      */
     @GetMapping("/u/login")
     public String loginPage(Principal principal) {
-        if (principal!=null)
+        if (principal != null)
             return "redirect:/u/info";
         loggingAuth("LOGIN PAGE");
         return "signin/loginPage";
@@ -63,7 +63,8 @@ public class LoginController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         logger.log(Level.INFO, ">> {0} is logout success", auth.getPrincipal());
-        return "signin/logoutSuccessfulPage";
+//        return "signin/logoutSuccessfulPage";
+        return "redirect:/";
     }
 
     /**
@@ -98,12 +99,13 @@ public class LoginController {
         String userInfo = loginedUser.toString();
         model.addAttribute("userName", principal.getName());
         model.addAttribute("userInfo", userInfo);
-
+        loggingAuth("INFO PAGE");
         return "userInfoPage";
     }
 
     /**
      * Trang access deny
+     *
      * @param model
      * @param principal
      * @return

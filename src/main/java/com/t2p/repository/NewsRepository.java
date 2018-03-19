@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import javax.persistence.criteria.CriteriaBuilder;
 
 public interface NewsRepository extends JpaRepository<News, Integer>{
+    News findAllByUrl(String url);
 }

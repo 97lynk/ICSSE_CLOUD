@@ -1,0 +1,75 @@
+<!--<img class="w3-row"-->
+<!--src="http://icsse2017.hcmute.edu.vn/Resources/Images/SubDomain/icsse2017/Banner%20Hoi%20nghi%20quoc%20te%20new.jpg"/>-->
+<div class="w3-row w3-display-container">
+    <img class="mySlides"
+         src="http://icsse2017.hcmute.edu.vn/Resources/imagesPortlet/e28a24d5-befe-4213-a3d5-2e1ebcb2a71e/HNQT1.jpg"
+         style="width:100%">
+    <img class="mySlides"
+         src="http://icsse2017.hcmute.edu.vn/Resources/imagesPortlet/e28a24d5-befe-4213-a3d5-2e1ebcb2a71e/HNQT2.jpg"
+         style="width:100%">
+    <img class="mySlides"
+         src="http://icsse2017.hcmute.edu.vn/Resources/imagesPortlet/e28a24d5-befe-4213-a3d5-2e1ebcb2a71e/HNQT3.jpg"
+         style="width:100%">
+
+    <!--box search-->
+    <div class="w3-display-topright">
+        <div class="w3-cell-row">
+            <input type="text" class="w3-container w3-input w3-padding-16 w3-cell" placeholder="Search.."/>
+            <a href="#" class="w3-container w3-button w3-white w3-xlarge w3-cell"><i class="fa fa-search"></i></a>
+        </div>
+    </div>
+</div>
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+            myIndex = 1
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000); // Change image every 2 seconds
+    }
+</script>
+<div class="w3-row">
+    <div class=" w3-bar w3-blue-grey w3-border-blue-grey">
+        <!--home-->
+        <a href="/" class="w3-bar-item w3-button w3-padding-16"
+           th:with="home=${NavMenu[0]}" th:href="'/' + ${home.news[0].url}" th:text="${home.type_name}"></a>
+        <!--about-->
+        <div class="w3-dropdown-hover">
+            <button class="w3-button w3-padding-16">ABOUT</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a class="w3-bar-item w3-button w3-padding-16"
+                   th:each="m,i : ${NavMenu}" th:if="${1 <= i.index && i.index <= 3}"
+                   th:text="${m.type_name}" th:href="'/' + ${m.news[0].url}"></a>
+            </div>
+        </div>
+        <!--for author-->
+        <div class="w3-dropdown-hover">
+            <button class="w3-button w3-padding-16">FOR AUTHOR</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a class="w3-bar-item w3-button w3-padding-16"
+                   th:each="m,i : ${NavMenu}" th:if="${4 <= i.index && i.index <= 6}"
+                   th:text="${m.type_name}" th:href="'/' + ${m.news[0].url}"></a>
+            </div>
+        </div>
+        <!--another-->
+        <a class="w3-bar-item w3-button w3-padding-16"
+           th:each="m,i : ${NavMenu}" th:unless="${i.index < 7}"
+           th:href="'/' + ${m.news[0].url}" th:text="${m.type_name}"></a>
+
+        <!--login button-->
+        <a th:if="${user == null}" class="w3-bar-item w3-button w3-dark-gray w3-padding-16" href="/u/login">LOGIN</a>
+        <span th:unless="${user == null}" class="w3-bar-item w3-dark-gray w3-padding-16">
+            <span th:text="'Hello! ' + ${user.firstName} + ' ' + ${user.lastName}"></span>
+              <a class="w3-text-blue" href="/u/logout">ĐĂNG XUẤT</a>
+        </span>
+    </div>
+</div>

@@ -27,6 +27,11 @@ public class NewsService implements INewsService {
     }
 
     @Override
+    public News getNewsByUrl(String url) {
+        return newsRepository.findAllByUrl(url);
+    }
+
+    @Override
     public List<News> getAllNews() {
         return newsRepository.findAll();
     }
@@ -34,6 +39,11 @@ public class NewsService implements INewsService {
     @Override
     public List<News> getAllNewsByType(TypeOfNews type) {
         return type.getNews();
+    }
+
+    @Override
+    public News changeEditWebPage(News webPage) {
+        return newsRepository.save(webPage);
     }
 
     @Override

@@ -19,17 +19,17 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import java.util.logging.Logger;
 
 /**
- *
  * @author 97lynk
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    MyUserDetailsService userDetailsService;
+    protected MyUserDetailsService userDetailsService;
 
     @Autowired
+    protected
     AuthenticationFailureHandler authFailureHandler;
 
     @Bean
@@ -53,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //        .withUser("admin")
         //       .password("1").roles("USER", "ADMIN");
     }
+
     private static final Logger logger = Logger.getLogger(SecurityConfig.class.getName());
 
     @Override
