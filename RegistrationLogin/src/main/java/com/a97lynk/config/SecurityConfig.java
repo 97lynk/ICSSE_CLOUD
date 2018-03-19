@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // bỏ qua csrf cho form đăng kí
-//        http.csrf().ignoringAntMatchers("/u/registration");
+        http.csrf().ignoringAntMatchers("/u/registration");
 
         // Các trang không yêu cầu login
         http.authorizeRequests().antMatchers("/u/login", "/u/logout").permitAll();
