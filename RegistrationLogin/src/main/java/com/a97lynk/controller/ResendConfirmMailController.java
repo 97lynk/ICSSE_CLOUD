@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 /**
  * @author 97lynk
  */
-@Controller
+//@Controller
 public class ResendConfirmMailController {
 
     private static final Logger logger
