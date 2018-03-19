@@ -1,7 +1,6 @@
 package com.t2p.entity;
 
 import com.a97lynk.object.entity.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,6 +17,8 @@ public class News implements Serializable {
 
     @Column(name = "user_id")
     private int userId;
+
+    private String url;
 
     @ManyToOne
     @JoinColumn(name = "type_id",
@@ -43,11 +44,12 @@ public class News implements Serializable {
     public News() {
     }
 
-    public News(String title, String content, Date createDate, Date lastModified) {
+    public News(String title, String content, Date createDate, Date lastModified, String url) {
         this.title = title;
         this.content = content;
         this.createDate = createDate;
         this.lastModified = lastModified;
+        this.url = url;
     }
 
     public int getId() {
@@ -120,5 +122,13 @@ public class News implements Serializable {
 
     public void setLastModified(Date lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
