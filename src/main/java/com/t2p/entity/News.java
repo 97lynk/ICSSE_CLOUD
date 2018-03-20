@@ -44,11 +44,13 @@ public class News implements Serializable {
     public News() {
     }
 
-    public News(String title, String content, Date createDate, Date lastModified, String url) {
+    public News(String title, String content, Date createDate, Date lastModified, int titleID, int userID, String url) {
         this.title = title;
         this.content = content;
         this.createDate = createDate;
         this.lastModified = lastModified;
+        this.typeId = titleID;
+        this.userId = userID;
         this.url = url;
     }
 

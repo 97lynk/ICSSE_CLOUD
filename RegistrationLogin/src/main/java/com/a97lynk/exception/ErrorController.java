@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * @author 97lynk
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class ErrorController {
 
     private static final Logger logger = Logger.getLogger(ErrorController.class.getName());

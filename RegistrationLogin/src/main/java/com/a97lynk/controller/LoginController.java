@@ -8,6 +8,7 @@ package com.a97lynk.controller;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,11 +40,13 @@ public class LoginController {
      * @return loginPage.html
      */
     @GetMapping("/u/login")
-    public String loginPage(Principal principal) {
+    public String loginPage(Principal principal, HttpServletRequest request) {
         if (principal != null)
             return "redirect:/u/info";
         loggingAuth("LOGIN PAGE");
-        return "signin/loginPage";
+//        return "signin/loginPage";
+//        request.getSession().removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+        return "fragment/login";
     }
 
     /**

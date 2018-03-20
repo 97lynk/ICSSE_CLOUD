@@ -14,6 +14,12 @@ public interface INewsService {
 
     List<News> getAllNewsByType(TypeOfNews type);
 
+    boolean deleteNewsById(Integer id);
+
+    News addNews(News news);
+
+    boolean editNews(News news);
+
     News changeEditWebPage(News webPage);
 
     List<News> getAllNewsByTypeId(Integer id);

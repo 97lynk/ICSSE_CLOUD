@@ -1,31 +1,28 @@
 package com.t2p.config;
 
 import com.a97lynk.config.SecurityConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class IcsseConfig extends SecurityConfig {
+    @Autowired
+    private AuthenticationSuccessHandler authSuccessHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // bỏ qua csrf cho form đăng kí
-//        http.csrf().ignoringAntMatchers("/u/registration");
+        // bỏ qua csrf cho
+        http.csrf().ignoringAntMatchers("/edit/**", "/news/**");
 
         // Các trang không yêu cầu login
         http.authorizeRequests().antMatchers("/u/login", "/u/logout").permitAll();
-
-        // yêu cầu quyền
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/u/changePassword*").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/u/changePassword*")
-                .hasAuthority("CHANGE_OWN_PASSWORD");
-
-        // Trang /tnfo yêu cầu phải login
-        // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests()
-                .antMatchers("/u/info", "/edit/**").hasAuthority("READ_INFO");
 
         // Khi người dùng đã login
         // Ngoại lệ AccessDeniedException sẽ ném ra.
@@ -38,6 +35,7 @@ public class IcsseConfig extends SecurityConfig {
                 // Submit URL của trang login
                 .loginProcessingUrl("/j_spring_security_check") // Submit URL
                 .loginPage("/u/login")
+                .successHandler(authSuccessHandler)
                 //
                 .defaultSuccessUrl("/")
                 //
