@@ -25,7 +25,7 @@ public class IcsseConfig extends SecurityConfig {
         // Trang /tnfo yêu cầu phải login
         // Nếu chưa login, nó sẽ redirect tới trang /login.
         http.authorizeRequests()
-                .antMatchers("/u/info", "/edit/**").hasAuthority("READ_INFO");
+                .antMatchers("/u/info", "/edit/**").hasAuthority("WRITE_DATA");
 
         // Khi người dùng đã login
         // Ngoại lệ AccessDeniedException sẽ ném ra.
