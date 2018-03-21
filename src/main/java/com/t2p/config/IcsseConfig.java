@@ -13,6 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class IcsseConfig extends SecurityConfig {
+
     @Autowired
     private AuthenticationSuccessHandler authSuccessHandler;
 

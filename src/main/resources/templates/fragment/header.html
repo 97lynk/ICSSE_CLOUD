@@ -90,7 +90,7 @@
 </div>
 <script>
     function loadLoginForm(showError) {
-        $.get('/u/login', function (data) {
+        $.get('/u/login?ajax=true', function (data) {
             $('#loginPage').html(data);
             $('#id01').show();
             if (showError == true)

@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.Principal;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,13 +42,21 @@ public class LoginController {
      * @return loginPage.html
      */
     @GetMapping("/u/login")
-    public String loginPage(Principal principal, HttpServletRequest request) {
+    public String loginPage(@RequestParam(name = "ajax", defaultValue = "false") String ajax, Principal principal, HttpServletRequest request) {
         if (principal != null)
             return "redirect:/u/info";
+        Enumeration<String> headers = request.getHeaderNames();
+        while (headers.hasMoreElements()) {
+            String headerName = headers.nextElement();
+            logger.info(headerName + " : " + request.getHeader(headerName));
+        }
         loggingAuth("LOGIN PAGE");
 //        return "signin/loginPage";
 //        request.getSession().removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-        return "fragment/login";
+        if (ajax.equals("true"))
+            return "fragment/login";
+        else
+            return "signin/loginPage";
     }
 
     /**
