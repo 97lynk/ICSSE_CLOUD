@@ -10,7 +10,7 @@
             </span>
         </li>
         <!--list news-->
-        <li th:each="n : ${news}">
+        <li th:each="n, i : ${news}" th:unless="${i.index} >= 5" >
             <a class="w3-text-teal w3-hover-text-gray" th:href="'/news/' + ${n.id}" th:text="${n.title}"></a>
             <span class="w3-text-gray" th:text="${#calendars.format(n.createDate,'HH:mm - dd/MM/yyyy')}"></span>
             <p th:text="(${#strings.length(n.content)} > 200) ? ${#strings.substring(n.content,0,200)} : ${n.content}"></p>

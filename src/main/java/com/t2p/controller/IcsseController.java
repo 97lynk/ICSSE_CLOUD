@@ -12,8 +12,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 
 public class IcsseController {
@@ -36,7 +38,12 @@ public class IcsseController {
     // data cho aside news bên phải
     @ModelAttribute("news")
     public List<News> allNews() {
-        return newsService.getAllNewsByTypeId(14);
+        return newsService.getAllNewsByTypeId(14).stream().sorted(new Comparator<News>() {
+            @Override
+            public int compare(News o1, News o2) {
+                return (int) (o2.getCreateDate().getTime() - o1.getCreateDate().getTime());
+            }
+        }).collect(Collectors.toList());
     }
 
     // user hiện tại

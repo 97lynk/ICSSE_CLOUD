@@ -7,6 +7,7 @@ import com.t2p.repository.AuthorRepository;
 import com.t2p.repository.NewsRepository;
 import com.t2p.repository.TypeOfNewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
