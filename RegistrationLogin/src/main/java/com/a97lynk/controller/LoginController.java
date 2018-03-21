@@ -46,7 +46,7 @@ public class LoginController {
         loggingAuth("LOGIN PAGE");
 //        return "signin/loginPage";
 //        request.getSession().removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-        return "fragment/login";
+        return "signin/loginPage";
     }
 
     /**
