@@ -87,7 +87,7 @@ public class LoginController {
      * @param principal
      * @return adminPage.html
      */
-    @GetMapping("/u/admin")
+    //@GetMapping("/u/admin")
     public String adminPage(Model model, Principal principal) {
         //principal - đối tượng cần xác thực
         User loginedUser = (User) ((Authentication) principal).getPrincipal(); // ép kiểu User cùa spring security
@@ -106,7 +106,7 @@ public class LoginController {
      * @param principal
      * @return userInfoPage
      */
-    @GetMapping("/u/info")
+    //@GetMapping("/u/info")
     public String userInfo(Model model, Principal principal) {
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
         String userInfo = loginedUser.toString();
