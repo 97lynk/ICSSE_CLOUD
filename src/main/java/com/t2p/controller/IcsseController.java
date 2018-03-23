@@ -1,6 +1,5 @@
 package com.t2p.controller;
 
-import com.a97lynk.controller.LoginController;
 import com.a97lynk.object.entity.User;
 import com.a97lynk.service.IUserService;
 import com.a97lynk.springdrive.DriveController;
