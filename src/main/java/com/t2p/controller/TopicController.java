@@ -1,6 +1,6 @@
 package com.t2p.controller;
 
-import com.example.springdrive.DriveController;
+import com.a97lynk.springdrive.DriveController;
 import com.t2p.entity.News;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

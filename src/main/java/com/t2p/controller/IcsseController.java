@@ -3,7 +3,7 @@ package com.t2p.controller;
 import com.a97lynk.controller.LoginController;
 import com.a97lynk.object.entity.User;
 import com.a97lynk.service.IUserService;
-import com.example.springdrive.DriveController;
+import com.a97lynk.springdrive.DriveController;
 import com.t2p.entity.News;
 import com.t2p.entity.TypeOfNews;
 import com.t2p.service.INewsService;

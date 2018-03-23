@@ -59,8 +59,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>springdrive</artifactId>
+            <groupId>com.a97lynk</groupId>
+            <artifactId>spring-drive</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
