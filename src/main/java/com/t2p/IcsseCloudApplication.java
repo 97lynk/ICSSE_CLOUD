@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@SpringBootApplication(scanBasePackages = {"com.a97lynk", "com.t2p"})
+@SpringBootApplication(scanBasePackages = {"com.a97lynk", "com.t2p", "com.example.springdrive"})
 public class IcsseCloudApplication {
 
 	public static void main(String[] args) {

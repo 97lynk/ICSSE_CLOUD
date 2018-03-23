@@ -20,7 +20,8 @@ public class IcsseConfig extends SecurityConfig {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // bỏ qua csrf cho
-        http.csrf().ignoringAntMatchers("/edit/**", "/news/**");
+//        http.csrf().ignoringAntMatchers("/edit/**", "/news/**", "/");
+        http.csrf().disable();
 
         // Các trang không yêu cầu login
         http.authorizeRequests().antMatchers("/u/login", "/u/logout").permitAll();

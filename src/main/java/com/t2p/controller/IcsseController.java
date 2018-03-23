@@ -3,6 +3,7 @@ package com.t2p.controller;
 import com.a97lynk.controller.LoginController;
 import com.a97lynk.object.entity.User;
 import com.a97lynk.service.IUserService;
+import com.example.springdrive.DriveController;
 import com.t2p.entity.News;
 import com.t2p.entity.TypeOfNews;
 import com.t2p.service.INewsService;
@@ -10,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -57,4 +60,8 @@ public class IcsseController {
     }
 
 
+    @ModelAttribute
+    public void driveModel(Model model, HttpServletRequest req) {
+        DriveController.listFile(req, model);
+    }
 }
