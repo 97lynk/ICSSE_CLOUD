@@ -29,8 +29,6 @@ public class MyAuthenticationFailureHandler
     private static final Logger logger
             = Logger.getLogger(MyAuthenticationFailureHandler.class.getName());
 
-    @Autowired
-    private LocaleResolver localeResolver;
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request,

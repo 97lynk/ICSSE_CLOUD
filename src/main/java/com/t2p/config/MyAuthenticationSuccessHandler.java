@@ -30,11 +30,6 @@ public class MyAuthenticationSuccessHandler
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-//        Enumeration<String> headerNames = request.getHeaderNames();
-//        while (headerNames.hasMoreElements()) {
-//            String headerName = headerNames.nextElement();
-//            logger.log(Level.INFO, "{0}: {1}", new Object[]{headerName, request.getHeader(headerName)});
-//        }
         String refererURL = request.getHeader("referer");
         if (refererURL.indexOf('?') > 0) {
             refererURL = refererURL.substring(0, refererURL.indexOf('?'));

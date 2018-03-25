@@ -135,7 +135,7 @@ public class User {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("User [id=").append(id)
+        builder.append("User [id =").append(id)
                 .append(", firstName=").append(firstName)
                 .append(", lastName=").append(lastName)
                 .append(", email=").append(email)

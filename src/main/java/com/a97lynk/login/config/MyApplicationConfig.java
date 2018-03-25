@@ -22,9 +22,9 @@ public class MyApplicationConfig implements WebMvcConfigurer {
 
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        return lci;
+        LocaleChangeInterceptor lc = new LocaleChangeInterceptor();
+        lc.setParamName("lang");
+        return lc;
     }
 
     @Override

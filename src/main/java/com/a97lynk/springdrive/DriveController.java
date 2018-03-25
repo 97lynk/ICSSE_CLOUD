@@ -97,7 +97,6 @@ public class DriveController {
         if (accessToken.length() <= 0) {
             return modelAndView;
         }
-        //
 
         try {
             GoogleCredential credential = new GoogleCredential().setAccessToken(accessToken);

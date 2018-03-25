@@ -95,7 +95,7 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Role [name=").append(name).append("]").append("[id=").append(id).append("]");
+        builder.append("Role [name =").append(name).append("]").append("[id=").append(id).append("]");
         return builder.toString();
     }
 

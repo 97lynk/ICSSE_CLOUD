@@ -42,8 +42,8 @@ public class IcsseConfig extends WebSecurityConfigurerAdapter {
           auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 
         //3. account trong memory
-//        auth.inMemoryAuthentication().withUser("t2p@gmail.com")
-//                .password("123").roles("hasAuthority('WRITE_DATA')");
+       // auth.inMemoryAuthentication().withUser("t2p@gmail.com")
+       //         .password("123").roles("hasAuthority('WRITE_DATA')");
     }
 
 
