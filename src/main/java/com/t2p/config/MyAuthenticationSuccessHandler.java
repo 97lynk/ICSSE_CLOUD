@@ -7,6 +7,7 @@ package com.t2p.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Service;
@@ -29,9 +30,6 @@ public class MyAuthenticationSuccessHandler
     private static final Logger logger
             = Logger.getLogger(MyAuthenticationSuccessHandler.class.getName());
 
-    @Autowired
-    private LocaleResolver localeResolver;
-
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 //        Enumeration<String> headerNames = request.getHeaderNames();
@@ -49,6 +47,7 @@ public class MyAuthenticationSuccessHandler
         logger.log(Level.INFO, ">> Referer: {0}", refererURL);
         logger.log(Level.INFO, ">> Success auth: {0}", successMessage);
         request.getSession().removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+        request.getSession().setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
     }
 
 }

@@ -1,6 +1,6 @@
 package com.t2p.controller;
 
-import com.t2p.entity.News;
+import com.t2p.persistence.entity.News;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,7 +20,7 @@ public class NewsController extends IcsseController {
     @GetMapping("/add")
     @PreAuthorize("hasAuthority('WRITE_DATA')")
     public String addNews() {
-        return "addNewsPage";
+        return "news/addNewsPage";
     }
 
     @PostMapping("/add")
@@ -40,7 +40,6 @@ public class NewsController extends IcsseController {
         }
     }
 
-
     @GetMapping("/{newsId}")
     public String newsaNews(@PathVariable("newsId") String newsId, Model model) {
         try {
@@ -54,7 +53,7 @@ public class NewsController extends IcsseController {
         } catch (Exception e) {
             return "redirect:/home";
         }
-        return "newsPage";
+        return "news/viewNewsPage";
     }
 
     @PostMapping("/delete/{newsId}")
@@ -76,7 +75,7 @@ public class NewsController extends IcsseController {
     @PreAuthorize("hasAuthority('WRITE_DATA')")
     public String editaNews(@PathVariable("newsId") String newsId, Model model) {
         newsaNews(newsId, model);
-        return "editNewsPage";
+        return "news/editNewsPage";
     }
 
     @PostMapping("/edit/{newsId}")

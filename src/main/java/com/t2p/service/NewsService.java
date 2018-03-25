@@ -1,13 +1,10 @@
 package com.t2p.service;
 
-import com.a97lynk.controller.LoginController;
-import com.t2p.entity.News;
-import com.t2p.entity.TypeOfNews;
-import com.t2p.repository.AuthorRepository;
-import com.t2p.repository.NewsRepository;
-import com.t2p.repository.TypeOfNewRepository;
+import com.t2p.persistence.entity.News;
+import com.t2p.persistence.entity.TypeOfNews;
+import com.t2p.persistence.repository.NewsRepository;
+import com.t2p.persistence.repository.TypeOfNewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +15,7 @@ public class NewsService implements INewsService {
     protected static final Logger logger
             = Logger.getLogger(NewsService.class.getName());
 
-    @Autowired
-    private AuthorRepository authorRepository;
+
 
     @Autowired
     private NewsRepository newsRepository;

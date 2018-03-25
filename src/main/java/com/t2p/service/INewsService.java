@@ -1,6 +1,7 @@
 package com.t2p.service;
 
-import com.t2p.entity.*;
+import com.t2p.persistence.entity.News;
+import com.t2p.persistence.entity.TypeOfNews;
 
 import java.util.List;
 

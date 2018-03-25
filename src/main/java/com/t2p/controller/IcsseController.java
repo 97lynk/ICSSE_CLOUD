@@ -1,17 +1,18 @@
 package com.t2p.controller;
 
-import com.a97lynk.object.entity.User;
-import com.a97lynk.service.IUserService;
+import com.a97lynk.login.persistence.entity.User;
+import com.a97lynk.login.service.IUserService;
 import com.a97lynk.springdrive.DriveController;
-import com.t2p.entity.News;
-import com.t2p.entity.TypeOfNews;
+import com.t2p.persistence.entity.News;
+import com.t2p.persistence.entity.TypeOfNews;
 import com.t2p.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Comparator;
